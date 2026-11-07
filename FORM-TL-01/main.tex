@@ -1,0 +1,70 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}
+\usepackage{longtable,booktabs,array,xcolor,hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\renewcommand{\arraystretch}{1.2}
+\begin{document}
+\begin{center}
+{\Large\bfseries FORM-TL-01: Taller de tipos de requisitos}\\[5pt]
+Ingeniería de Requerimientos (ISR-401) -- UTEQ\\
+\textbf{Estudiante:} Mayra Lucila Córdova Carreño\\
+\textbf{Docente:} Gleiston Cicerón Guerrero Ulloa, PhD\\
+\textbf{Caso:} Plataforma de gestión de citas médicas -- Policlínico Ribera del Quevedo
+\end{center}
+\section{Alcance y criterio}
+Se analizan los veinte enunciados proporcionados en la guía FORM-TL-01 [1] en tres dimensiones: tipo de requisito (funcional, calidad o restricción), producto/proceso y sistema/software. Las clasificaciones son propuestas razonadas; en casos ambiguos se explicitan los supuestos. Para requisitos de calidad se utiliza la terminología de ISO/IEC 25010:2023 [2].
+\section{Clasificación y justificación}
+\small
+\begin{longtable}{@{}p{0.08\linewidth}p{0.12\linewidth}p{0.12\linewidth}p{0.12\linewidth}p{0.46\linewidth}@{}}
+\toprule Código & Tipo & Ámbito & Nivel & Justificación (una línea)\\\midrule\endfirsthead
+\toprule Código & Tipo & Ámbito & Nivel & Justificación (una línea)\\\midrule\endhead
+E01 & Funcional & Producto & Software & Permite reservar citas seleccionando especialidad, médico, fecha y hora disponibles. \\
+E02 & Funcional & Producto & Software & Define el envío automático de recordatorios por SMS 24 horas antes de la cita. \\
+E03 & Calidad & Producto & Software & Exige un tiempo de respuesta adecuado para las operaciones de la aplicación. \\
+E04 & Funcional & Producto & Software & Permite al recepcionista registrar la llegada de los pacientes. \\
+E05 & Restricción & Proceso & Software & Impone Java 21 y PostgreSQL como tecnologías de desarrollo. \\
+E06 & Funcional & Producto & Software & Permite consultar pacientes del día y registrar consultas atendidas. \\
+E07 & Calidad & Producto & Software & Exige proteger la confidencialidad de los datos de salud. \\
+E08 & Restricción & Producto & Software & Fija Android 10 o superior como plataforma mínima compatible. \\
+E09 & Funcional & Producto & Software & Define el registro de inasistencia según la anticipación de cancelación. \\
+E10 & Calidad & Producto & Software & Exige que los adultos mayores puedan usar la plataforma con facilidad. \\
+E11 & Restricción & Proceso & Sistema & Establece seis meses como plazo máximo de entrega del proyecto. \\
+E12 & Funcional & Producto & Software & Define el cierre automático de sesión tras diez minutos de inactividad. \\
+E13 & Funcional & Producto & Sistema & Exige entrada por pantalla táctil e impresión de tickets en el quiosco. \\
+E14 & Calidad & Producto & Software & Exige mantener disponible el servicio de la plataforma. \\
+E15 & Funcional & Producto & Software & Permite generar reportes mensuales de inasistencias por especialidad. \\
+E16 & Restricción & Proceso & Sistema & Obliga a validar incrementos con el director médico cada dos semanas. \\
+E17 & Restricción & Producto & Sistema & Exige cumplir la normativa ecuatoriana de protección de datos personales. \\
+E18 & Calidad & Producto & Sistema & Exige interoperabilidad con el sistema de facturación existente. \\
+E19 & Calidad & Producto & Sistema & Exige recuperar el servicio en menos de 30 minutos sin perder citas. \\
+E20 & Restricción & Proceso & Software & Obliga a revisión por pares antes de integrar cambios a la rama principal. \\
+\bottomrule
+\end{longtable}
+\normalsize
+\section{Requisitos de calidad: clasificación y cuantificación}
+Los umbrales siguientes son \textbf{propuestas de especificación}, no valores aportados por el policlínico ni resultados de pruebas ejecutadas. Las métricas y pruebas deberán validarse con las partes interesadas.
+\begin{enumerate}[leftmargin=*]
+\item \textbf{E03 -- Eficiencia de desempeño / comportamiento temporal.} Al menos el 95\% de las consultas de disponibilidad de citas deberá responder en un máximo de 2 segundos con 300 usuarios concurrentes. \emph{Métrica:} porcentaje de consultas dentro del límite; \emph{unidades:} \% y segundos; \emph{umbral:} $\geq95\%$ en $\leq2$ s. \emph{Verificación:} prueba de carga con 300 usuarios.
+\item \textbf{E07 -- Seguridad / confidencialidad.} La plataforma deberá rechazar el 100\% de los intentos de acceso a datos de salud realizados sin autorización, dentro del conjunto definido de pruebas de permisos. \emph{Métrica:} tasa de rechazos correctos; \emph{unidad:} \%; \emph{umbral:} 100\%. \emph{Verificación:} pruebas de autorización por roles. Esto comprueba solo una parte de la seguridad.
+\item \textbf{E10 -- Capacidad de interacción / operabilidad.} Al menos el 90\% de los participantes mayores de 60 años deberá completar una reserva sin asistencia en un máximo de 5 minutos. \emph{Métrica:} tasa de finalización sin ayuda; \emph{unidades:} \% y minutos; \emph{umbral:} $\geq90\%$ en $\leq5$ min. \emph{Verificación:} prueba de usabilidad con participantes de esa edad, aún no realizada.
+\item \textbf{E14 -- Fiabilidad / disponibilidad.} La plataforma deberá alcanzar una disponibilidad mensual de al menos el 99,5\% durante las 24 horas del día, medida sobre el servicio de consulta y reserva de citas. \emph{Métrica:} tiempo disponible sobre tiempo total; \emph{unidad:} \%; \emph{umbral:} $\geq99,5\%$. \emph{Verificación:} monitoreo mensual. La cobertura 24/7 es una propuesta que debe validarse con el director médico.
+\item \textbf{E18 -- Compatibilidad / interoperabilidad.} Al menos el 99\% de los intercambios realizados con el sistema de facturación a través de su servicio web documentado deberá completarse correctamente durante las pruebas de integración. \emph{Métrica:} intercambios correctos sobre intercambios intentados; \emph{unidad:} \%; \emph{umbral:} $\geq99\%$. \emph{Verificación:} pruebas con las operaciones reales del servicio, aún por confirmar.
+\end{enumerate}
+\paragraph{E19 (ya medible).} Se clasifica como \textbf{Fiabilidad / recuperabilidad}: restablecimiento en \emph{menos de} 30 minutos y cero citas confirmadas perdidas tras una falla del servidor principal. Se relaciona con tolerancia a fallos, pero su foco es la recuperación.
+\section{Discusión y revisión de clasificaciones}
+\textbf{Estado de la comparación entre compañeros:} no se ha realizado una comparación efectiva con otro estudiante; por tanto, no se registran discrepancias ni acuerdos de revisión entre pares. Esta revisión individual \textbf{no sustituye} la comparación solicitada en la guía.
+
+Se identifican como interpretaciones discutibles: \textbf{E05}, que puede entenderse como restricción del proceso o de implementación del producto; \textbf{E08}, como restricción de plataforma o característica de adaptabilidad; \textbf{E11}, cuyo nivel sistema/software no se deduce directamente del plazo del proyecto; y \textbf{E16}, cuya validación puede abarcar todo el sistema o solo incrementos de software. Se conservan las clasificaciones de la tabla como propuestas y no se atribuyen a ningún compañero.
+\section{Uso de inteligencia artificial}
+Se utilizó \textbf{ChatGPT (OpenAI, GPT-6)} como apoyo para estructurar, redactar y revisar propuestas de clasificación, métricas y texto LaTeX. La estudiante debe revisar el contenido contra la guía del docente, confirmar los supuestos y verificar la compilación y las fuentes antes de entregarlo. No se realizaron ni se afirman pruebas de campo o discusiones entre pares.
+\section{Referencias}
+\begin{enumerate}[label={[\arabic*]}]
+\item G. C. Guerrero-Ulloa, ``Guía y rúbrica de evaluación: FORM-TL-01, Taller de tipos de requisitos,'' Universidad Técnica Estatal de Quevedo, material de clase, 2026.
+\item ISO/IEC, \emph{ISO/IEC 25010:2023, Systems and software engineering -- Systems and software Quality Requirements and Evaluation (SQuaRE) -- Product quality model}, 2023.
+\end{enumerate}
+\end{document}
