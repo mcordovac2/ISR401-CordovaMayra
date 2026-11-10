@@ -287,4 +287,164 @@ interaccion de los lectores.
 
 \end{enumerate}
 
+
+\section{Matriz de requisitos de Wattpad}
+
+Los siguientes requisitos constituyen una
+propuesta academica basada en las
+funcionalidades observadas de Wattpad.
+Los umbrales de calidad son objetivos
+propuestos y no mediciones reales
+del funcionamiento de la plataforma.
+
+\small
+\begin{longtable}{|p{1.3cm}|p{2cm}|p{5.2cm}|p{5cm}|}
+\hline
+\textbf{ID} & \textbf{Tipo} &
+\textbf{Requisito} &
+\textbf{Criterio de aceptacion} \\ \hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \textbf{Tipo} &
+\textbf{Requisito} &
+\textbf{Criterio de aceptacion} \\ \hline
+\endhead
+
+RF-01 & Funcional &
+El sistema debera mostrar historias cuyo
+titulo coincida con el texto ingresado
+en la busqueda. &
+Se muestra un resultado correspondiente
+al titulo de prueba. \\ \hline
+
+RF-02 & Funcional &
+El sistema debera mostrar el contenido
+del capitulo seleccionado. &
+Se visualiza el contenido del capitulo
+elegido. \\ \hline
+
+RF-03 & Funcional &
+El sistema debera mostrar los comentarios
+del parrafo seleccionado. &
+Se visualizan los comentarios asociados
+al parrafo de prueba. \\ \hline
+
+RF-04 & Funcional &
+El sistema debera registrar el voto
+del usuario autenticado en un capitulo. &
+El voto queda registrado y se muestra
+el estado correspondiente. \\ \hline
+
+RF-05 & Funcional &
+El sistema debera mostrar las historias
+guardadas en la biblioteca del usuario. &
+La historia guardada aparece
+en la biblioteca. \\ \hline
+
+RI-01 & Interfaz &
+La interfaz de busqueda debera mostrar
+un campo para ingresar el titulo
+de una historia. &
+El campo acepta el texto ingresado. \\ \hline
+
+RI-02 & Interfaz &
+La interfaz de lectura debera mostrar
+un control con la etiqueta Votar. &
+El control aparece en la pantalla
+de lectura. \\ \hline
+
+RU-01 & Usabilidad &
+Al menos 9 de 10 participantes deberan
+encontrar una historia por titulo
+en 60 segundos sin asistencia. &
+Tasa de exito mayor o igual al 90\%
+en la prueba definida. \\ \hline
+
+RU-02 & Usabilidad &
+Al menos 9 de 10 participantes deberan
+guardar una historia en su biblioteca
+sin asistencia. &
+Tasa de exito mayor o igual al 90\%
+en la prueba definida. \\ \hline
+
+RH-01 & Factores humanos &
+La interfaz debera mostrar una etiqueta
+textual que identifique el estado
+de voto registrado. &
+Al menos 9 de 10 participantes
+identifican el estado correctamente. \\ \hline
+
+RC-01 & Calidad &
+El sistema debera mostrar resultados
+de busqueda en un maximo de 3 segundos
+en condiciones de prueba definidas. &
+Al menos 95 de 100 busquedas
+cumplen el tiempo establecido. \\ \hline
+
+RC-02 & Calidad &
+El sistema debera mostrar el contenido
+de un capitulo en un maximo de 3 segundos
+en condiciones de prueba definidas. &
+Al menos 95 de 100 aperturas
+cumplen el tiempo establecido. \\ \hline
+
+RC-03 & Calidad &
+El servicio de lectura debera alcanzar
+una disponibilidad mensual minima
+del 99,5\%. &
+Disponibilidad mensual mayor o
+igual al 99,5\%. \\ \hline
+
+RC-04 & Calidad &
+El sistema debera impedir modificaciones
+no autorizadas de capitulos
+pertenecientes a otra cuenta. &
+Se rechazan los 20 intentos
+no autorizados de prueba. \\ \hline
+
+RC-05 & Calidad &
+El sistema debera mostrar una
+confirmacion visual despues
+de registrar un voto valido. &
+Se muestra confirmacion en
+20 de 20 votos validos. \\ \hline
+
+\end{longtable}
+\normalsize
+
+\subsection{Clasificacion de calidad segun ISO/IEC 25010:2023}
+
+\begin{center}
+\small
+\begin{tabular}{|p{1.4cm}|p{4.7cm}|p{5.5cm}|}
+\hline
+\textbf{ID} &
+\textbf{Caracteristica} &
+\textbf{Subcaracteristica} \\ \hline
+
+RC-01 & Eficiencia de desempeno &
+Comportamiento temporal \\ \hline
+
+RC-02 & Eficiencia de desempeno &
+Comportamiento temporal \\ \hline
+
+RC-03 & Fiabilidad &
+Disponibilidad \\ \hline
+
+RC-04 & Seguridad &
+Integridad \\ \hline
+
+RC-05 & Capacidad de interaccion &
+Autodescriptividad \\ \hline
+
+\end{tabular}
+\end{center}
+
+Las metricas y los criterios de aceptacion
+permiten planificar la verificacion de
+los requisitos. No representan pruebas
+ejecutadas sobre la infraestructura
+interna de Wattpad.
+
 \end{document}
