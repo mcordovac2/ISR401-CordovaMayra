@@ -1,43 +1,26 @@
+# TA-IND-01 — IEEE 29148 y tipos de requisitos de un sistema conocido
 
-# TA-IND-01 — Ingeniería de Requisitos
+**Estudiante:** Mayra Lucila Córdova Carreño  
+**Asignatura:** Ingeniería de Requisitos (ISR-401)  
+**Sistema analizado:** Wattpad
 
-## Datos generales
-
-- Estudiante: Mayra Lucila Córdova Carreño
-- Asignatura: Ingeniería de Requisitos (ISR-401)
-- Actividad: IEEE 29148 y tipos de requisitos de un sistema conocido
-- Sistema seleccionado: Wattpad
-
-## Descripción
-
-Este proyecto contiene el análisis de requisitos
-de Wattpad, una plataforma digital destinada
-a la lectura, escritura y publicación de historias.
-
-El trabajo se desarrolla tomando como referencia
-la norma ISO/IEC/IEEE 29148:2018 y la
-clasificación de calidad ISO/IEC 25010:2023.
-
-## Estructura del proyecto
-
-- main.tex: documento fuente en LaTeX.
-- main.pdf: informe compilado (pendiente).
-- referencias.bib: referencias bibliográficas (pendiente).
-- figuras/: capturas de pantalla (pendiente).
+## Contenido
+- `main.tex`: informe en LaTeX (resumen, glosario, 15 requisitos, clasificación, autoevaluación, correcciones y reflexión).
+- `main.pdf`: versión compilada del informe.
+- `referencias.bib`: fuentes bibliográficas utilizadas.
+- `figuras/`: tres capturas propias (`01_busqueda.png`, `02_lectura.png`, `03_votacion.png`).
 
 ## Compilación
+Se requiere una distribución de LaTeX con `pdflatex` y los paquetes `babel` (español), `geometry`, `graphicx`, `longtable`, `array`, `booktabs`, `enumitem` y `microtype`.
 
-El documento se puede compilar con pdfLaTeX
-utilizando un editor compatible con LaTeX.
+Desde la carpeta `TA-IND-01`, ejecutar:
 
-## Estado del trabajo
+```bash
+pdflatex -interaction=nonstopmode main.tex
+pdflatex -interaction=nonstopmode main.tex
+```
 
-En desarrollo.
+El documento incluye bibliografía en estilo numérico IEEE directamente en `main.tex` para permitir compilarlo con `pdflatex` sin BibTeX; `referencias.bib` conserva los registros editables de las fuentes. Mantener los nombres de las imágenes exactamente como se indican.
 
-## Uso de inteligencia artificial
-
-Se utilizó ChatGPT como herramienta de apoyo
-para organizar la información y revisar la
-redacción del documento. El análisis debe
-contrastarse con las normas y evidencias
-consultadas.
+## Alcance académico y transparencia
+Los requisitos y umbrales propuestos son ejemplos de análisis académico y no representan métricas medidas en los servidores de Wattpad. Se utilizó asistencia de IA para organizar y revisar redacción, tablas y LaTeX; las afirmaciones normativas y la interpretación final deben contrastarse con las fuentes originales. No se distribuyen copias completas de normas protegidas por derechos de autor.
