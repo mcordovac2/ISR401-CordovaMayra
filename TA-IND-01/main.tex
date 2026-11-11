@@ -1,5 +1,5 @@
 
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -9,7 +9,13 @@
 \usepackage{longtable}
 \usepackage{array}
 
-\geometry{margin=2.5cm}
+\geometry{margin=2.15cm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\usepackage{microtype}
 
 \title{TA-IND-01: IEEE 29148 y tipos de requisitos de un sistema conocido}
 \author{Mayra Lucila Córdova Carreño}
@@ -65,7 +71,7 @@ tomando como referencia la experiencia
 de uso del sistema.
 
 
-\section{Resumen analitico de ISO/IEC/IEEE 29148:2018}
+\section{Resumen analitico de ISO/IEC/IEEE 29148:2018}\cite{ieee29148}
 
 \subsection{Alcance y fundamentos}
 
@@ -297,8 +303,8 @@ Los umbrales de calidad son objetivos
 propuestos y no mediciones reales
 del funcionamiento de la plataforma.
 
-\small
-\begin{longtable}{|p{1.3cm}|p{2cm}|p{5.2cm}|p{5cm}|}
+\footnotesize
+\begin{longtable}{|p{1.1cm}|p{1.6cm}|p{5.1cm}|p{5.1cm}|}
 \hline
 \textbf{ID} & \textbf{Tipo} &
 \textbf{Requisito} &
@@ -413,7 +419,7 @@ Se muestra confirmacion en
 \end{longtable}
 \normalsize
 
-\subsection{Clasificacion de calidad segun ISO/IEC 25010:2023}
+\subsection{Clasificacion de calidad segun ISO/IEC 25010:2023}\cite{iso25010}
 
 \begin{center}
 \small
@@ -446,5 +452,151 @@ permiten planificar la verificacion de
 los requisitos. No representan pruebas
 ejecutadas sobre la infraestructura
 interna de Wattpad.
+
+
+\section{Autoevaluacion de los quince requisitos}
+
+Se aplicaron a cada enunciado los nueve criterios de la clausula
+5.2.5: necesario (N), apropiado (A), no ambiguo (NA), completo (C),
+singular (S), factible (F), verificable (V), correcto (Co) y conforme
+(Cf). La evaluacion es documental y preliminar: la necesidad,
+correccion y factibilidad definitivas requieren confirmacion con
+partes interesadas y responsables tecnicos. La marca \textbf{R}
+indica que el criterio requiere revision; \textbf{P} indica que
+no se detecto incumplimiento en la revision textual.
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l*{9}{c}p{3.5cm}}
+\toprule
+ID & N&A&NA&C&S&F&V&Co&Cf& Observacion\\
+\midrule
+RF-01&P&P&R&R&P&P&R&P&P& Coincidencia por titulo imprecisa\\
+RF-02&P&P&P&P&P&P&P&P&P& Sin hallazgo textual\\
+RF-03&P&P&P&R&P&P&R&P&P& Falta condicion de existencia\\
+RF-04&P&P&P&R&P&P&R&P&P& Falta aclarar voto repetido\\
+RF-05&P&P&P&P&P&P&P&P&P& Sin hallazgo textual\\
+RI-01&P&P&P&P&P&P&P&P&P& Sin hallazgo textual\\
+RI-02&P&P&P&P&P&P&P&P&P& Sin hallazgo textual\\
+RU-01&P&P&P&R&P&P&R&P&P& Falta definir muestra y tarea\\
+RU-02&P&P&P&R&P&P&R&P&P& Falta definir muestra y tarea\\
+RH-01&P&P&P&R&P&P&R&P&P& Falta contexto de prueba\\
+RC-01&P&P&R&R&P&P&R&P&P& Carga y medicion indefinidas\\
+RC-02&P&P&R&R&P&P&R&P&P& Carga y medicion indefinidas\\
+RC-03&P&P&P&R&P&P&R&P&P& Falta formula y periodo\\
+RC-04&P&P&P&R&P&P&R&P&P& Falta delimitar autorizacion\\
+RC-05&P&P&P&R&P&P&R&P&P& Falta definir confirmacion\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Correcciones propuestas: antes y despues}
+\small
+\begin{longtable}{|p{1.25cm}|p{5.8cm}|p{7.2cm}|}
+\hline
+ID & Antes (resumen del problema) & Despues (redaccion propuesta)\\ \hline
+\endfirsthead
+\hline ID & Antes & Despues\\ \hline\endhead
+RF-01 & Mostrar historias cuyo titulo coincida con el texto. &
+Ante una consulta por titulo, el sistema debera mostrar las historias
+cuyo titulo contenga la cadena ingresada, sin distinguir mayusculas
+y minusculas.\\ \hline
+RF-03 & Mostrar comentarios del parrafo seleccionado. &
+Cuando un parrafo tenga comentarios registrados, el sistema debera
+mostrar los comentarios asociados a ese parrafo al seleccionarlo.\\ \hline
+RF-04 & Registrar el voto del usuario autenticado. &
+Cuando un usuario autenticado vote por primera vez en un capitulo,
+el sistema debera registrar un voto asociado a ese usuario y capitulo.\\ \hline
+RU-01 & Nueve de diez encuentran una historia en 60 segundos. &
+En una prueba con diez participantes y un titulo objetivo conocido,
+al menos nueve deberan localizar la historia en 60 segundos sin ayuda,
+medidos desde que se muestra la pantalla de busqueda.\\ \hline
+RU-02 & Nueve de diez guardan una historia sin asistencia. &
+En una prueba con diez participantes autenticados y una historia
+abierta, al menos nueve deberan agregarla a su biblioteca sin ayuda
+en un maximo de 60 segundos.\\ \hline
+RH-01 & Identificar el estado de voto registrado. &
+Tras registrar un voto, la interfaz debera mostrar el texto
+``Voto registrado''; al menos nueve de diez participantes deberan
+identificar correctamente ese estado en una prueba de reconocimiento.\\ \hline
+RC-01 & Busqueda en tres segundos en condiciones definidas. &
+En cien consultas con una conexion estable de 10 Mb/s y hasta veinte
+resultados, al menos 95 deberan presentar los resultados en tres
+segundos o menos, desde el envio de la consulta.\\ \hline
+RC-02 & Abrir capitulo en tres segundos en condiciones definidas. &
+En cien aperturas de capitulos de hasta 3000 palabras con una conexion
+estable de 10 Mb/s, al menos 95 deberan mostrar el texto en tres
+segundos o menos desde la seleccion.\\ \hline
+RC-03 & Disponibilidad mensual de 99,5 por ciento. &
+El servicio de lectura debera estar disponible al menos el 99,5\%
+del tiempo de cada mes calendario; disponibilidad = minutos
+operativos / minutos totales del mes por 100.\\ \hline
+RC-04 & Impedir modificaciones no autorizadas. &
+El sistema debera rechazar solicitudes de edicion de un capitulo
+cuando la cuenta autenticada no tenga permiso de edicion sobre la
+historia; se verificara con veinte solicitudes no autorizadas.\\ \hline
+RC-05 & Mostrar confirmacion visual despues del voto. &
+Tras registrar un voto valido, el sistema debera mostrar el mensaje
+``Voto registrado'' en la pantalla del capitulo; se verificara en
+veinte pruebas consecutivas.\\ \hline
+\end{longtable}
+\normalsize
+
+Las versiones corregidas reemplazan a las originales para futuras
+pruebas de aceptacion. No se encontraron expresiones subjetivas como
+``facil'', ``rapido'' o ``intuitivo'' sin metrica en los enunciados
+finales; se evitaron tambien pronombres sin referente y absolutos
+no comprobables (clausula 5.2.7). Las condiciones de ensayo son
+supuestos academicos que deberan validarse con interesados.
+
+\section{Reflexion critica}
+
+Los requisitos de calidad fueron los mas dificiles de formular,
+porque una funcionalidad observable, como buscar una historia o
+registrar un voto, puede describirse mediante una accion concreta,
+pero la calidad exige definir una medida, un umbral y condiciones de
+prueba. Decir que Wattpad debe cargar ``rapido'' no permite establecer
+si el sistema cumple; en cambio, una meta temporal y una cantidad de
+pruebas ofrecen una base verificable. Tambien fue necesario distinguir
+entre lo que la plataforma hace actualmente y los objetivos que se
+proponen para este ejercicio: no contamos con datos internos de
+rendimiento ni disponibilidad de Wattpad.
+
+Otro reto consistio en relacionar cada requisito con el modelo de
+calidad ISO/IEC 25010:2023, especialmente al diferenciar rendimiento,
+fiabilidad, seguridad y capacidad de interaccion. La revision segun
+ISO/IEC/IEEE 29148:2018 mostro que incluso los requisitos que parecen
+claros pueden estar incompletos si omiten el contexto o el metodo de
+verificacion. Aprendi que redactar un requisito no es describir una
+pantalla, sino expresar una necesidad de forma que pueda discutirse,
+validarse y comprobarse. Como siguiente paso seria necesario
+contrastar los umbrales propuestos con usuarios y pruebas reales.
+
+\section{Evidencias de funcionalidades}
+\noindent Las capturas propias de la carpeta \texttt{figuras/} respaldan
+RF-01, RF-02 y RF-04. Se insertan al compilar con los archivos
+originales presentes en el repositorio.
+
+\begin{center}
+\begin{minipage}{0.31\textwidth}\centering
+\IfFileExists{figuras/01_busqueda.png}{\includegraphics[width=\linewidth,height=3.1cm,keepaspectratio]{figuras/01_busqueda.png}}{\fbox{\parbox[c][2.5cm][c]{0.85\linewidth}{\centering Captura 1 en GitHub}}}
+\scriptsize Busqueda (RF-01)
+\end{minipage}\hfill
+\begin{minipage}{0.31\textwidth}\centering
+\IfFileExists{figuras/02_lectura.png}{\includegraphics[width=\linewidth,height=3.1cm,keepaspectratio]{figuras/02_lectura.png}}{\fbox{\parbox[c][2.5cm][c]{0.85\linewidth}{\centering Captura 2 en GitHub}}}
+\scriptsize Lectura (RF-02)
+\end{minipage}\hfill
+\begin{minipage}{0.31\textwidth}\centering
+\IfFileExists{figuras/03_votacion.png}{\includegraphics[width=\linewidth,height=3.1cm,keepaspectratio]{figuras/03_votacion.png}}{\fbox{\parbox[c][2.5cm][c]{0.85\linewidth}{\centering Captura 3 en GitHub}}}
+\scriptsize Votacion (RF-04)
+\end{minipage}
+\end{center}
+
+\begin{thebibliography}{3}
+\bibitem{ieee29148} ISO/IEC/IEEE, \textit{Systems and software engineering---Life cycle processes---Requirements engineering}, ISO/IEC/IEEE 29148:2018, 2018, doi: 10.1109/IEEESTD.2018.8559686.
+\bibitem{iso25010} ISO/IEC, \textit{Systems and software engineering---Systems and software Quality Requirements and Evaluation (SQuaRE)---Product quality model}, ISO/IEC 25010:2023, 2023.
+\bibitem{ieee12207} ISO/IEC/IEEE, \textit{Systems and software engineering---Software life cycle processes}, ISO/IEC/IEEE 12207:2017, 2017.
+\end{thebibliography}
 
 \end{document}
